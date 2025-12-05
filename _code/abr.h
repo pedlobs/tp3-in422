@@ -12,6 +12,7 @@ abr_cherche(abr *a, int n);
 abr*
 abr_insere(abr *a, int n);
 
+int abr_max(abr *a);
 //abr*
 //abr_retire(abr *a, int n);
 

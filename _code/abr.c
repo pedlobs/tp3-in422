@@ -46,7 +46,13 @@ abr* abr_insere(abr *a, int n){
   }
 }
 
+int abr_max(abr *a){
+  if (arbre_est_vide(arbre_droit(a))) {
+    return arbre_valeur(a);
+  }
 
+  return abr_max(arbre_droit(a));
+}
 
 
 
