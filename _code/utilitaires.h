@@ -1,0 +1,2 @@
+void*
+allocation(int taille);
