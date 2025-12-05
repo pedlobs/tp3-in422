@@ -64,6 +64,8 @@ void test(){
   arbre_affiche(abr_insere(root_abr, 2));
 
   printf("abr_max: %d\n", abr_max(root_abr));
+
+  arbre_affiche(abr_retire(root_abr, 6));
 }
 
 int main(int argc, char **argv) {
