@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
-
+#include <time.h>
 #include "abr.h"
 #include "fonctions_arbres.h"
+
 
 abr*
 abr_vide()
@@ -98,4 +99,19 @@ abr_retire(abr *a, int n){
   return a;
 }
 
+int tentative(int N){
 
+  abr *a = arbre_vide();
+
+    for (int j = 0; j<N; j++) {
+      int n = rand() % (365) + 1; // Generates a random number between 1 adn 365
+
+      if (abr_cherche(a,n)) {
+        return 1;
+      } else {
+        a = abr_insere(a,n);
+      }
+    }
+
+  return 0;
+}

@@ -17,3 +17,5 @@ int abr_max(abr *a);
 abr*
 abr_retire(abr *a, int n);
 
+int tentative(int N);
+
