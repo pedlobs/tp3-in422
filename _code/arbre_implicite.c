@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 struct arbre_binaire_complet_implicite
 {
   int taille;

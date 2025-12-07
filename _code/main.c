@@ -9,6 +9,8 @@
 #include "fonctions_listes.h"
 #include "abr.h"
 #include "table_dynamique.h"
+#include "arbre_implicite.h"
+#include "fonctions_arbres_implicites.h"
 
 
 tgc_t gc;
@@ -78,7 +80,7 @@ void test(){
   double y_data[11];
 
   for (int i = 0;i<11;i++) {
-  int cont = 0;
+    int cont = 0;
     for (int j = 0; j<10000; j++) {
       
       if (tentative(num_personnes[i])) {
@@ -124,9 +126,9 @@ void test(){
   printf("\n\n Étape 4:\n\n");
 
 
-  int n = 2;
-
   table_dynamique *F = table_dynamique_vide();
+
+  int n = 2;
 
   table_dynamique_insere(F, 0, 0);
   table_dynamique_insere(F, 1, 1);
@@ -145,6 +147,30 @@ void test(){
   printf("Indice = %d\n", n);
 
   table_dynamique_libere(F);
+  
+
+  printf("\n\n Étape 5:\n\n");
+
+  abi *arbre_i = abi_vide();
+
+  abi_ajoute(arbre_i, 0);
+  abi_ajoute(arbre_i, 1);
+  abi_ajoute(arbre_i, 2);
+  abi_ajoute(arbre_i, 3);
+
+  printf("ABI: ");
+  printf("{");
+    
+  for (int i = 0; i <= abi_index_dernier(arbre_i); i++) {
+    printf("%d, ", abi_acces(arbre_i,i));  
+  }
+  printf("}\n");
+
+  arbre *abi_as_an_arbre = abi_vers_arbre(arbre_i);
+  printf("Arbre: \n");
+  arbre_affiche(abi_as_an_arbre);
+
+  abi_libere(arbre_i);
 }
 
 int main(int argc, char **argv) {
