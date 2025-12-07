@@ -7,6 +7,7 @@
 
 #define TAILLE_INITIALE 4
 
+
 struct table_dynamique 
 {
   int taille;

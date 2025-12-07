@@ -8,6 +8,7 @@
 #include "liste_chainee.h"
 #include "fonctions_listes.h"
 #include "abr.h"
+#include "table_dynamique.h"
 
 
 tgc_t gc;
@@ -120,6 +121,30 @@ void test(){
   printf("Data plotted on 'plot_etape3.png'.\n");
 
 
+  printf("\n\n Étape 4:\n\n");
+
+
+  int n = 2;
+
+  table_dynamique *F = table_dynamique_vide();
+
+  table_dynamique_insere(F, 0, 0);
+  table_dynamique_insere(F, 1, 1);
+
+  while (true) {
+    table_dynamique_insere(
+      F,
+      n,
+      table_dynamique_acces(F, n-1) + table_dynamique_acces(F, n-2)
+    );
+
+    if ((table_dynamique_acces(F,n)) > 1000000000) break;
+    
+    n++;
+  }
+  printf("Indice = %d\n", n);
+
+  table_dynamique_libere(F);
 }
 
 int main(int argc, char **argv) {
